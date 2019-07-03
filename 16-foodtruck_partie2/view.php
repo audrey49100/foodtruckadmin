@@ -48,7 +48,7 @@ function displayHeader()
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h1 class="mt-0 mb-3 text-white">On mange quoi?</h1>
+                            <h1 class="mt-0 mb-3 text-white">AdMiN</h1>
                             <div class="breadcrumbs">
                                 <img src="img/retro-food-truck_23-2147530708.jpg" alt="">
                                 <p class="mb-0 text-white"><a class="text-white" href="#">Home</a> / <span
@@ -63,8 +63,8 @@ function displayHeader()
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
        <div class="collapse navbar-collapse">
          <div class="navbar-nav ">
-           <a class="nav-item nav-link active" href="index.php">Accueil</a>
-           <a class="nav-item nav-link" href="index.php?page=liste">Liste  des foodtrucks</a>
+           
+           <a class="nav-item nav-link" href="index.php">Liste  des foodtrucks</a>
            <a class="nav-item nav-link" href="index.php?page=ajout">Ajouter un foodtruck</a>
            <a class="nav-item nav-link " href="index.php?page=modifier">Modifier un foodtruck</a>
          </div>
@@ -76,6 +76,32 @@ function displayHeader()
 
     return $content;
 }
+
+// LISTE DES FOODTRUCKS////
+
+function displayListe($liste) {
+
+  $content = '
+  
+  <div class="container-fluid col-12 text-center mx-auto" >
+     <h2 class="text-center col-12">Liste des foodtrucks</h2>
+  ';
+             foreach ($liste as $element){
+
+             $content.= 
+              "<p>"
+             . $element['nom_truck'] . ' '
+            
+             . "</p>" ;
+             }
+             $content .= '
+  
+  </div>
+  ';
+  
+     return $content;
+  }
+ 
 
 
 
