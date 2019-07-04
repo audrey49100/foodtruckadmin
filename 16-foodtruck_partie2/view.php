@@ -86,7 +86,10 @@ $content = '
 ';
     foreach ($liste as $element){
     $content .= "<p>"
-    . $element['nom_truck'] . "</p>" ;
+    . $element['nom_truck'] ." ".
+    '<a class="btn btn-sm btn-success" href="index.php?page=modif&id='.$element["id"].'">modifier<a/>'." " .
+     '<a class="btn btn-sm btn-danger" href="index.php?page=supp&id='.$element["id"].'">supprimer<a/>'." ".
+     "</p>" ;
     }
     $content .= '
 
@@ -97,28 +100,65 @@ $content = '
 }
 
 // AJOUTER -----------------------------------------------------------------
-function displayModifier($liste){
+// function displayModifier($liste){
 
-    $content = '
-    <div class="container-fluid" id="formu">
-    <h2 class="text-center col-12">Choisissez un foodtruck</h2>
-    <form method="POST" action="index.php?page=modifier" enctype="multipart/form-data" class="mx-auto text-center col-md-6">
-        <label for="identif" class="bg bg-secondary col-12"></label>
-        <select class="custom-select" id="truck" name ="typeTruck">';
+//     $content = '
+//     <div class="container-fluid" id="formu">
+//     <h2 class="text-center col-12">Choisissez un foodtruck</h2>
+//     <form method="POST" action="index.php?page=modifier" enctype="multipart/form-data" class="mx-auto text-center col-md-6">
+//         <label for="identif" class="bg bg-secondary col-12"></label>
+//         <select class="custom-select" id="truck" name ="truck">';
  
-        foreach ($liste as $element) {
-            $content .=  "<option>" . $element["nom_truck"] ."</option>";
-        }
+//         foreach ($liste as $element) {
+//             $content .=  "<option>" . $element["nom_truck"] ."</option>";
+//         }
     
-        $content .= '
-            </select>
-         <button type="submit" class="btn btn-primary my-1" name="bouton">Valider</button>
-    </form>
- </div>';
+//         $content .= '
+//             </select>
+//          <button type="submit" class="btn btn-primary my-1" name="bouton">Valider</button>
+//     </form>
+//  </div>';
  
-    return $content;
- }
- 
+//     return $content;
+//  }
+
+//  FORMULAIRE MODIFIER//
+
+function displayFormModif($liste){
+    // var_dump($liste);
+    $content =  '
+    <div class="container-fluid" id="formFiche">
+   <h2 class="text-center col-12">MODIFIER FOODTRUCK</h2>
+   <form method="POST" action="index.php?page=validModif" enctype="multipart/form-data" class="mx-auto text-center col-md-6">
+
+       <label  for="id" class="bg bg-success col-12">Identifiant</label>';
+        
+          $content.='<input type="text" class="custom-select" id="id" name= "id" readonly
+          value ="'.$liste["id"].'">';
+        
+        $content .='<label  for="nom" class="bg bg-success col-12">Nom du truck</label>';
+       
+        $content.='<input type="text" class="custom-select" id="nom_truck" name= "nom_truck" 
+        value ="'.$liste["nom_truck"].'">';
+      
+       $content .='<label  for="adresse" class="bg bg-success col-12">Adresse</label>';
+   
+        $content.='<input type="text" class="custom-select" id="adresse" name= "adresse" 
+        value ="'.$liste["adresse"].'">';
+      
+      
+
+      $content .='<button type="submit" class="btn btn-primary my-1" name="validModif">Valider</button>
+
+
+   </form>
+</div>
+    
+    
+    ';
+return $content;
+
+}
 
 // FOOTER ------------------------------------------------------------------
 function displayFooter()
