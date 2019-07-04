@@ -59,3 +59,19 @@ function ajouter($connexion,$nom_truck,$adresse){
     return $resultat;
 
 }
+
+
+function ajouterSpe($connexion,$nom){
+    $requete = $connexion->prepare("INSERT INTO typecuisine (id_typeCuisine,nom) VALUES (NULL,:nom);");
+
+     $requete->bindParam(":nom",$nom);
+    $resultat =$requete->execute();
+    //  var_dump($nom_truck);
+    //  var_dump($adresse);
+    // var_dump($requete);
+    // var_dump($resultat);
+    // var_dump($connexion->errorInfo());
+
+    return $resultat;
+
+}

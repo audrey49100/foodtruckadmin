@@ -48,7 +48,8 @@ if (isset($_GET['page'])){
         $nom_truck=$_POST["nom_truck"];
         $adresse=$_POST["adresse"];
         $ajout=ajouter($connexion,$nom_truck,$adresse);
-       
+        $nom=$_POST["nom"];
+        $ajoutspe=ajouterSpe($connexion,$nom);
         break;
 
     }

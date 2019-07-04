@@ -156,6 +156,11 @@ $content = '
                <label for="adresse">Adresse : </label>
                <input type="text" class="form-control border border-dark bg-light" id="adresse" name="adresse" />
            </div>
+
+           <div class="form-group col-md-5 col-sm-12 mx-auto">
+           <label for="specialite">Specialite : </label>
+           <input type="text" class="form-control border border-dark bg-light" id="nom" name="nom" />
+       </div>
        </div>
 
        <button type="submit" class="btn btn-primary" name="clic">Valider</button>
