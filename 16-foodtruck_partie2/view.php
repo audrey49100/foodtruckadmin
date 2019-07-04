@@ -66,7 +66,7 @@ function displayHeader()
           <div class="navbar-nav ">
             <a class="nav-item nav-link" href="index.php">Liste des foodtrucks</a>
             <a class="nav-item nav-link" href="index.php?page=ajout">Ajouter un foodtruck</a>
-            <a class="nav-item nav-link " href="index.php?page=modifier">Modifier un foodtruck</a>
+           
           </div>
         </div>
       </nav>
@@ -99,30 +99,7 @@ $content = '
     return $content;
 }
 
-// AJOUTER -----------------------------------------------------------------
-// function displayModifier($liste){
 
-//     $content = '
-//     <div class="container-fluid" id="formu">
-//     <h2 class="text-center col-12">Choisissez un foodtruck</h2>
-//     <form method="POST" action="index.php?page=modifier" enctype="multipart/form-data" class="mx-auto text-center col-md-6">
-//         <label for="identif" class="bg bg-secondary col-12"></label>
-//         <select class="custom-select" id="truck" name ="truck">';
- 
-//         foreach ($liste as $element) {
-//             $content .=  "<option>" . $element["nom_truck"] ."</option>";
-//         }
-    
-//         $content .= '
-//             </select>
-//          <button type="submit" class="btn btn-primary my-1" name="bouton">Valider</button>
-//     </form>
-//  </div>';
- 
-//     return $content;
-//  }
-
-//  FORMULAIRE MODIFIER//
 
 function displayFormModif($liste){
     // var_dump($liste);
@@ -159,6 +136,35 @@ function displayFormModif($liste){
 return $content;
 
 }
+
+/////// AJOUTER///////
+function displayAjout(){
+$content = '
+<div class="container-fluid" id="formulaire">
+
+   <h2 class="text-center col-12">AJOUTER UN FOODTRUCK</h2>
+
+   <form method="POST" action="index.php?page=insert" enctype="multipart/form-data" class="mx-auto text-center">
+
+       <div class="form-row col-md-6 mx-auto">
+           <div class="form-group col-md-5 col-sm-12 mx-auto">
+               <label for="nom">Nom : </label>
+               <input type="text" id="nom_truck" class="form-control border border-dark bg-light" name="nom_truck" />
+           </div>
+
+           <div class="form-group col-md-5 col-sm-12 mx-auto">
+               <label for="adresse">Adresse : </label>
+               <input type="text" class="form-control border border-dark bg-light" id="adresse" name="adresse" />
+           </div>
+       </div>
+
+       <button type="submit" class="btn btn-primary" name="clic">Valider</button>
+   </form>
+</div>
+';
+return $content;
+}
+
 
 // FOOTER ------------------------------------------------------------------
 function displayFooter()

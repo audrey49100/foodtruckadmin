@@ -33,10 +33,24 @@ if (isset($_GET['page'])){
             $adresse=$_POST["adresse"];
             echo validModif($id,$adresse,$nom_truck,$connexion);
             break;
+
         case 'supp':
-            // $listeTruck = liste($connexion);
-            // echo displayFormModif();
+        $id=$_GET["id"];
+        echo supprimer($id,$connexion);    
         break;
+
+        case'ajout':  
+    
+        echo displayAjout();
+        break;
+
+        case'insert':  
+        $nom_truck=$_POST["nom_truck"];
+        $adresse=$_POST["adresse"];
+        $ajout=ajouter($connexion,$nom_truck,$adresse);
+       
+        break;
+
     }
 }
 

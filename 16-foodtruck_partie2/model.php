@@ -29,6 +29,33 @@ function validModif($id,$adresse,$nom_truck,$connexion){
     $requete->bindParam(":adresse",$adresse);
 
     $resultat =$requete->execute();
-   
+    return $resultat;
+
+}
+
+function supprimer($id,$connexion){
+    $requete = $connexion->prepare("DELETE FROM food WHERE id=:id");
+    $requete->bindParam(":id",$id);
+    $resultat =$requete->execute();
+
+    // var_dump($id);
+    // var_dump($requete);
+    // var_dump($resultat);
+    return $resultat;
+}
+
+function ajouter($connexion,$nom_truck,$adresse){
+    $requete = $connexion->prepare("INSERT INTO food (id,nom_truck,adresse) VALUES (NULL,:nom_truck,:adresse);");
+
+     $requete->bindParam(":nom_truck",$nom_truck);
+    $requete->bindParam(":adresse",$adresse);
+    $resultat =$requete->execute();
+    //  var_dump($nom_truck);
+    //  var_dump($adresse);
+    // var_dump($requete);
+    // var_dump($resultat);
+    // var_dump($connexion->errorInfo());
+
+    return $resultat;
 
 }
