@@ -2,7 +2,7 @@
 
 define('SERVER' ,"localhost"); 
 define('USER' ,"root");
-define('PASSWORD' , "");
+define('PASSWORD' , "root");
 define('BASE' ,"foodtruck");
 
 // au cas ou connexion echoue
